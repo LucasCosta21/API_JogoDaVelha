@@ -5,7 +5,7 @@
 Conteúdo do Readme:
 -Introdução
 -Como Rodar
--Como funciona
+-Funcionamento da biblioteca flasks
 
 # Introdução
 
@@ -31,11 +31,17 @@ Conteúdo do Readme:
 | 127.0.0.1:5000/game| Cria um novo jogo e retorna seu id e o primeiro jogador à jogar. |
 | 127.0.0.1:5000/game/(id)/(objeto JSON) | faz uma jogada em forma de um (objeto JSON) no jogo de id (id) |
 
-  Na segunda URL temos como segundo parâmetro um objeto JSON, tal objeto tem o formato *{"jogador":"letra do jogador(X ou O)","x":"posição x da jogada","y":"posição y da jogada"}*. Esta forma de realizar a jogada atribui dinamicidade à API.
+  Na segunda URL temos como segundo parâmetro um objeto JSON, tal objeto tem o formato:
+  ```json
+  {
+  "jogador" : "letra do jogador(X ou O)",
+  "x":"posição x da jogada",
+  "y":"posição y da jogada"
+  }
+  ```
+  Esta forma de realizar a jogada atribui dinamicidade à API.
   
-# Como funciona
-
-  Como dito anteriormente, o código da solução foi desenvolvido em python, a seguir temos uma explicação do funcionamento do código feito:
+# Funcionamento da biblioteca flasks
 
   A biblioteca flasks permite atribuir as rotas da nossa aplicação à funções definidas no código, sua sintaxe é a seguinte
 
