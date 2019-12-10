@@ -23,9 +23,13 @@ Conteúdo do Readme:
       
    ![Caixa para ser selecionada](https://datatofish.com/wp-content/uploads/2019/03/000_pyinstaller.png)
        
- 2) Abra o diretório "/api" (disponivel aqui no git) no terminal (linux ou windows) e rode o seguinte comando > pip install flask flask_restful
+ 2) Abra o diretório "/api" (disponivel aqui no git) no terminal (linux ou windows) e rode o seguinte comando 
  
- 3) Ainda no diretório "api", no terminal rode o seguinte comando > python ./api.py
+ > pip install flask flask_restful
+ 
+ 3) Ainda no diretório "api", no terminal rode o seguinte comando 
+ 
+ > python ./api.py
  
  4) abra seu navegador de preferência, a url base da api é *127.0.0.1:5000*, porém esta por sí não gera retorno nenhum. As URL's com suas respectivas funções são listadas à seguir.
  
