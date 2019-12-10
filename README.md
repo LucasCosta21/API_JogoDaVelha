@@ -16,8 +16,7 @@ Conteúdo do Readme:
 
  1) Baixe o arquivo JogoDaVelhaAPI
  
- Windows
-    1.1) baixe o ambiente python em seu computador por meio deste link: https://www.python.org/downloads/ , deixando a opção de adicionar python à variável de ambiente na instalação:
+ 1.1) *somente no windows*, baixe o ambiente python em seu computador por meio deste link: https://www.python.org/downloads/ , deixando a opção de adicionar python à variável de ambiente na instalação:
       
    ![Caixa para ser selecionada](https://datatofish.com/wp-content/uploads/2019/03/000_pyinstaller.png)
        
