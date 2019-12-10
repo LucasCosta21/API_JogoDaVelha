@@ -3,8 +3,11 @@
 **API criada para solução do desafio proposto pela DTI**
 
 Conteúdo do Readme:
+
 -Introdução
+
 -Como Rodar
+
 -Funcionamento da biblioteca flasks
 
 # Introdução
@@ -39,6 +42,15 @@ Conteúdo do Readme:
   "y":"posição y da jogada"
   }
   ```
+  Exemplo prático:
+  ```json
+  {
+  "jogador" : "O",
+  "x":"2",
+  "y":"1"
+  }
+  ```
+  
   Esta forma de realizar a jogada atribui dinamicidade à API.
   
 # Funcionamento da biblioteca flasks
@@ -50,4 +62,18 @@ Conteúdo do Readme:
 def funcaoExemplo(): # funcao que será chamada
   return "Olá Mundo"
 ```
+exemplo usado no código:
+``` python
+@app.route('/game')
+def criaJogo():
+    cod = ''.join(random.choice( string.ascii_uppercase + string.digits + string.ascii_lowercase) for x in range(8))
+    jogador = ["X","O"]
+    primeiro = jogador[random.randint(0, 1)]
+    jogo = {"id" : cod, "proximoPlayer" : primeiro, "tabuleiro" : {"0":{"0":"0","1":"0","2":"0"},"1":{"0":"0","1":"0","2":"0"},"2":{"0":"0","1":"0","2":"0"}}}
+    jogos.append(jogo)
+
+    jogo = {"id" : cod, "firstPlayer" : primeiro}
+    return jogo
+```
+
   Quando os módulos do flask estiverem ativados portanto, a rota "/rota" exibirá "Olá Mundo" na tela.
