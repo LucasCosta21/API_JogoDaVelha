@@ -9,39 +9,42 @@ app = Flask(__name__)
 jogos = []
 
 def checaVitoria(tabuleiro): # 0 - vitoria, 1 - continua, 2 - empate
-    for x in range(3):
-      if tabuleiro[str(x)]["0"] == tabuleiro[str(x)]["1"] and tabuleiro[str(x)]["0"] == tabuleiro[str(x)]["2"]:
-        return 0    
-      elif tabuleiro["0"][str(x)] == tabuleiro["1"][str(x)] and tabuleiro["0"][str(x)] == tabuleiro["2"][str(x)]:
-        return 0
+  if tabuleiro["0"]["0"] == tabuleiro["1"]["1"] and tabuleiro["1"]["1"] == tabuleiro["2"]["2"] and tabuleiro["1"]["1"] != "0":
+    return 0 
+  if tabuleiro["2"]["0"] == tabuleiro["1"]["1"] and tabuleiro["1"]["1"] == tabuleiro["0"]["2"] and tabuleiro["1"]["1"] != "0":
+    return 0
 
-    if tabuleiro["0"]["0"] == tabuleiro["1"]["1"] and tabuleiro["1"]["1"] == tabuleiro["2"]["2"]:
-      return 0 
-    if tabuleiro["2"]["0"] == tabuleiro["1"]["1"] and tabuleiro["1"]["1"] == tabuleiro["0"]["2"]:
+  for x in range(3):
+    if tabuleiro[str(x)]["0"] == tabuleiro[str(x)]["1"] and tabuleiro[str(x)]["0"] == tabuleiro[str(x)]["2"] and tabuleiro[str(x)]["0"] != "0":
+      return 0    
+    elif tabuleiro["0"][str(x)] == tabuleiro["1"][str(x)] and tabuleiro["0"][str(x)] == tabuleiro["2"][str(x)] and tabuleiro["0"][str(x)] != "0":
       return 0
-    else:
-      for y in range(3):
-        if tabuleiro[0][str(y)] == "0" or tabuleiro[1][str(y)] == "0" or tabuleiro[2][str(y)] == "0":
-          return 1
-      return 2
+      
+  for x in range(3):  
+    if tabuleiro["0"][str(x)] == "0" or tabuleiro["1"][str(x)] == "0" or tabuleiro["2"][str(x)] == "0":
+      return 1
+  return 2
+
+@app.route('/printa/<int:id>')
+def printa(id):
+  return jogos[id]
 
 @app.route('/game')
 def criaJogo():
-    cod = ''.join(random.choice( string.ascii_uppercase + string.digits + string.ascii_lowercase) for x in range(8))
-    jogador = ["X","O"]
-    primeiro = jogador[random.randint(0, 1)]
-    jogo = {"id" : cod, "proximoPlayer" : primeiro, "tabuleiro" : {"0":{"0":"0","1":"0","2":"0"},"1":{"0":"0","1":"0","2":"0"},"2":{"0":"0","1":"0","2":"0"}}}
-    jogos.append(jogo)
+  cod = ''.join(random.choice( string.ascii_uppercase + string.digits + string.ascii_lowercase) for x in range(8))
+  jogador = ["X","O"]
+  primeiro = jogador[random.randint(0, 1)]
+  jogo = {"id" : cod, "proximoPlayer" : primeiro, "tabuleiro" : {"0":{"0":"0","1":"0","2":"0"},"1":{"0":"0","1":"0","2":"0"},"2":{"0":"0","1":"0","2":"0"}}}
+  jogos.append(jogo)
 
-    jogo = {"id" : cod, "firstPlayer" : primeiro}
-    return jogo
+  jogo = {"id" : cod, "firstPlayer" : primeiro}
+  return jogo
 
-@app.route('/game/<string:idJogada>/<string:gameJson>')
-def movimenta(idJogada,gameJson):
-  jogada = json.loads(gameJson)
-  jogador = jogada["jogador"]
-  x = jogada["x"]
-  y = jogada["y"]
+@app.route('/game/<string:idJogada>/<string:jogada>')
+def movimenta(idJogada,jogada):
+  jogador = jogada[0]
+  x = jogada[1]
+  y = jogada[2]
 
   for jogo in jogos:
     if idJogada == jogo["id"]:
