@@ -36,18 +36,17 @@ Conteúdo do Readme:
 |     URL       |     Função    |
 | ------------- | ------------- |
 | 127.0.0.1:5000/game| Cria um novo jogo e retorna seu id e o primeiro jogador à jogar. |
-| 127.0.0.1:5000/game/(id)/(objeto JSON) | faz uma jogada em forma de um (objeto JSON) no jogo com o id|
+| 127.0.0.1:5000/game/(id)/Jogada | faz uma jogada em forma de uma String no jogo com o id|
 
-  Na segunda URL temos como segundo parâmetro um objeto JSON (sem espaços em branco), tal objeto tem o formato:
-  ```json
-  {"jogador":"letra do jogador(X ou O)","x":"posição x da jogada","y":"posição y da jogada"}
-  ```
-  Exemplo prático:
-  ```json
-  {"jogador":"O","x":"2","y":"1"}
-  ```
+  Na segunda URL temos como segundo parâmetro uma string com o jogador, x e y da jogada, exemplo:
   
-  Esta forma de realizar a jogada atribui dinamicidade à API.
+  > /game/1k2j99a8xn/O21
+  
+  Neste caso, o movimento é do jogador "O" com x = 2 e y = 1, no jogo de id *1k2j99a8xn*.
+  
+  > /game/D8dhAd1zxs/X00
+  
+  Neste caso, o movimento é do jogador "x" com x = 0 e y = 0, no jogo de id *D8dhAd1zxs*.
   
 # Funcionamento da biblioteca flasks
 
