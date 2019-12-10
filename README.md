@@ -5,7 +5,7 @@
 Conteúdo do Readme:
 -Introdução
 -Como Rodar
--Como foi feito
+-Como funciona
 
 # Introdução
 
@@ -13,27 +13,36 @@ Conteúdo do Readme:
   Para resolução do desafio foi utilizada a linguagem python na sua versão 3.7. A escolha da liguagem para a resolução se deve a sua portabilidade, permitindo não somente rodar a aplicação em diversos dispositivos, mas também abrir mão da necessidade do uso de um servidor e de um banco de dados para a execução do programa. Diversas bibliotecas foram usadas para a resolução do problema, entre elas *flask, flask_restful e json*.
  
 # Como Rodar
- 
- *Método simples*
- 
- 1) Baixe a pasta JogoDaVelhaAPI
+
+ 1) Baixe o arquivo JogoDaVelhaAPI
  
  Windows
-    2) baixe o ambiente python em seu computador por meio deste link: https://www.python.org/downloads/ , deixando a opção de adicionar python à variável de ambiente na instalação:
+    1.1) baixe o ambiente python em seu computador por meio deste link: https://www.python.org/downloads/ , deixando a opção de adicionar python à variável de ambiente na instalação:
       
-      ![alt text](https://datatofish.com/wp-content/uploads/2019/03/000_pyinstaller.png)
-      
-   2.1) Va ao diretório *JogoDaVelhaAPI/Dist/api* e abra o arquivo api.exe
- Linux
-    2) Abra o diretório *JogoDaVelhaAPI/Dist/api* no terminal e rode o comando > ./api
+   ![Caixa para ser selecionada](https://datatofish.com/wp-content/uploads/2019/03/000_pyinstaller.png)
+       
+ 2) Abra o diretório "/api" (disponivel aqui no git) no terminal (linux ou windows) e rode o seguinte comando > pip install flask flask_restful
  
- 3) abra seu navegador de preferência, a url base da api é *127.0.0.1:5000*, porém esta por sí não gera retorno nenhum. As URL's com suas respectivas funções são listadas à seguir.
+ 3) Ainda no diretório "api", no terminal rode o seguinte comando > python ./api.py
+ 
+ 4) abra seu navegador de preferência, a url base da api é *127.0.0.1:5000*, porém esta por sí não gera retorno nenhum. As URL's com suas respectivas funções são listadas à seguir.
  
 |     URL       |     Função    |
 | ------------- | ------------- |
 | 127.0.0.1:5000/game| Cria um novo jogo e retorna seu id e o primeiro jogador à jogar. |
-| 127.0.0.1:5000/game/(id)/(objeto JSON) | dasd  |
+| 127.0.0.1:5000/game/(id)/(objeto JSON) | faz uma jogada em forma de um (objeto JSON) no jogo de id (id) |
+
+  Na segunda URL temos como segundo parâmetro um objeto JSON, tal objeto tem o formato *{"jogador":"letra do jogador(X ou O)","x":"posição x da jogada","y":"posição y da jogada"}*. Esta forma de realizar a jogada atribui dinamicidade à API.
+  
+# Como funciona
+
+  Como dito anteriormente, o código da solução foi desenvolvido em python, a seguir temos uma explicação do funcionamento do código feito:
+
+  A biblioteca flasks permite atribuir as rotas da nossa aplicação à funções definidas no código, sua sintaxe é a seguinte
 
 ``` python
-  print(hello)
+@app.route('/rota') # rota na url
+def funcaoExemplo(): # funcao que será chamada
+  return "Olá Mundo"
 ```
+  Quando os módulos do flask estiverem ativados portanto, a rota "/rota" exibirá "Olá Mundo" na tela.
