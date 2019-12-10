@@ -2,6 +2,6 @@
 
 API criada para solução do desafio proposto pela DTI
 
-''' python
+``` python
   print(hello)
-'''
+```
