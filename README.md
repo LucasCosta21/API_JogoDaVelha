@@ -32,23 +32,15 @@ Conteúdo do Readme:
 |     URL       |     Função    |
 | ------------- | ------------- |
 | 127.0.0.1:5000/game| Cria um novo jogo e retorna seu id e o primeiro jogador à jogar. |
-| 127.0.0.1:5000/game/(id)/(objeto JSON) | faz uma jogada em forma de um (objeto JSON) no jogo de id (id) |
+| 127.0.0.1:5000/game/(id)/(objeto JSON) | faz uma jogada em forma de um (objeto JSON) no jogo com o id|
 
-  Na segunda URL temos como segundo parâmetro um objeto JSON, tal objeto tem o formato:
+  Na segunda URL temos como segundo parâmetro um objeto JSON (sem espaços em branco), tal objeto tem o formato:
   ```json
-  {
-  "jogador" : "letra do jogador(X ou O)",
-  "x":"posição x da jogada",
-  "y":"posição y da jogada"
-  }
+  {"jogador":"letra do jogador(X ou O)","x":"posição x da jogada","y":"posição y da jogada"}
   ```
   Exemplo prático:
   ```json
-  {
-  "jogador" : "O",
-  "x":"2",
-  "y":"1"
-  }
+  {"jogador":"O","x":"2","y":"1"}
   ```
   
   Esta forma de realizar a jogada atribui dinamicidade à API.
