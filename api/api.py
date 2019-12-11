@@ -1,4 +1,7 @@
 # coding: utf8
+# API jogo da velha
+# autor - Lucas Assunção Costa
+
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 import random,json,string
