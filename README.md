@@ -57,6 +57,8 @@ Conteúdo do Readme:
 def funcaoExemplo(): # funcao que será chamada
   return "Olá Mundo"
 ```
+Quando os módulos do flask estiverem ativados portanto, a rota "/rota" exibirá "Olá Mundo" na tela.
+
 exemplo usado no código:
 ``` python
 @app.route('/game')
@@ -70,5 +72,3 @@ def criaJogo():
     jogo = {"id" : cod, "firstPlayer" : primeiro}
     return jogo
 ```
-
-  Quando os módulos do flask estiverem ativados portanto, a rota "/rota" exibirá "Olá Mundo" na tela.
